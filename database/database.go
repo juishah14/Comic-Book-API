@@ -135,7 +135,7 @@ func (db *DB) DeleteCharacter(characterId string) *model.DeleteCharacterResponse
 	if err != nil {
 		log.Fatal(err)
 	}
-	return &model.DeleteCharacterResponse{deletedCharacterId: characterId}
+	return &model.DeleteCharacterResponse{DeletedCharacterID: characterId}
 }
 
 func (db *DB) GetAuthor(id string) *model.Author {
@@ -231,7 +231,7 @@ func (db *DB) DeleteAuthor(authorId string) *model.DeleteAuthorResponse {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return &model.DeleteAuthorResponse{deletedAuthorId: authorId}
+	return &model.DeleteAuthorResponse{DeletedAuthorID: authorId}
 }
 
 func (db *DB) GetComicBook(id string) *model.ComicBook {
@@ -324,7 +324,7 @@ func (db *DB) DeleteComicBook(bookId string) *model.DeleteComicBookResponse {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return &model.DeleteComicBookResponse{deletedComicBookId: bookId}
+	return &model.DeleteComicBookResponse{DeletedComicBookID: bookId}
 }
 
 func (db *DB) GetComicBookStore(id string) *model.ComicBookStore {
@@ -423,5 +423,5 @@ func (db *DB) DeleteComicBookStore(storeId string) *model.DeleteComicBookStoreRe
 	if err != nil {
 		log.Fatal(err)
 	}
-	return &model.DeleteComicBookStoreResponse{deletedComicBookStoreId: storeId}
+	return &model.DeleteComicBookStoreResponse{DeletedComicBookStoreID: storeId}
 }
