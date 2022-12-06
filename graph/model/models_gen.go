@@ -2,27 +2,124 @@
 
 package model
 
-type CreateJobListingInput struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Company     string `json:"company"`
-	URL         string `json:"url"`
+type Author struct {
+	ID                string `json:"_id"`
+	FirstName         string `json:"first_name"`
+	LastName          string `json:"last_name"`
+	Description       string `json:"description"`
+	BirthDate         string `json:"birth_date"`
+	ComicBooksWritten string `json:"comic_books_written"`
 }
 
-type DeleteJobResponse struct {
-	DeletedJobID string `json:"deletedJobId"`
+type Character struct {
+	ID              string `json:"_id"`
+	Name            string `json:"name"`
+	Description     string `json:"description"`
+	ComicBookSeries string `json:"comic_book_series"`
+	Superpower      string `json:"superpower"`
+	Strength        int    `json:"strength"`
+	Intelligence    int    `json:"intelligence"`
+	DangerLevel     int    `json:"danger_level"`
 }
 
-type JobListing struct {
+type ComicBook struct {
+	ID              string `json:"_id"`
+	Name            string `json:"name"`
+	Description     string `json:"description"`
+	PublicationDate string `json:"publication_date"`
+	Author          string `json:"author"`
+}
+
+type ComicBookStore struct {
 	ID          string `json:"_id"`
-	Title       string `json:"title"`
+	Name        string `json:"name"`
+	Location    string `json:"location"`
+	PostalCode  string `json:"postal_code"`
 	Description string `json:"description"`
-	Company     string `json:"company"`
-	URL         string `json:"url"`
+	PhoneNumber string `json:"phone_number"`
+	StoreOwner  string `json:"store_owner"`
 }
 
-type UpdateJobListingInput struct {
-	Title       *string `json:"title"`
+type CreateAuthorInput struct {
+	FirstName         string `json:"first_name"`
+	LastName          string `json:"last_name"`
+	Description       string `json:"description"`
+	BirthDate         string `json:"birth_date"`
+	ComicBooksWritten string `json:"comic_books_written"`
+}
+
+type CreateCharacterInput struct {
+	Name            string `json:"name"`
+	Description     string `json:"description"`
+	ComicBookSeries string `json:"comic_book_series"`
+	Superpower      string `json:"superpower"`
+	Strength        int    `json:"strength"`
+	Intelligence    int    `json:"intelligence"`
+	DangerLevel     int    `json:"danger_level"`
+}
+
+type CreateComicBookInput struct {
+	Name            string `json:"name"`
+	Description     string `json:"description"`
+	PublicationDate string `json:"publication_date"`
+	Author          string `json:"author"`
+}
+
+type CreateComicBookStoreInput struct {
+	Name        string `json:"name"`
+	Location    string `json:"location"`
+	PostalCode  string `json:"postal_code"`
+	Description string `json:"description"`
+	PhoneNumber string `json:"phone_number"`
+	StoreOwner  string `json:"store_owner"`
+}
+
+type DeleteAuthorResponse struct {
+	DeletedAuthorID string `json:"deletedAuthorId"`
+}
+
+type DeleteCharacterResponse struct {
+	DeletedCharacterID string `json:"deletedCharacterId"`
+}
+
+type DeleteComicBookResponse struct {
+	DeletedComicBookID string `json:"deletedComicBookId"`
+}
+
+type DeleteComicBookStoreResponse struct {
+	DeletedComicBookStoreID string `json:"deletedComicBookStoreId"`
+}
+
+type UpdateAuthorInput struct {
+	FirstName         *string `json:"first_name"`
+	LastName          *string `json:"last_name"`
+	Description       *string `json:"description"`
+	BirthDate         *string `json:"birth_date"`
+	ComicBooksWritten *string `json:"comic_books_written"`
+}
+
+type UpdateCharacterInput struct {
+	Name            *string `json:"name"`
+	Description     *string `json:"description"`
+	ComicBookSeries *string `json:"comic_book_series"`
+	Superpower      *string `json:"superpower"`
+	Strength        *int    `json:"strength"`
+	Intelligence    *int    `json:"intelligence"`
+	DangerLevel     *int    `json:"danger_level"`
+}
+
+type UpdateComicBookInput struct {
+	Name            *string `json:"name"`
+	Description     *string `json:"description"`
+	PublicationDate *string `json:"publication_date"`
+	Author          *string `json:"author"`
+}
+
+type UpdateComicBookStoreInput struct {
+	Name        *string `json:"name"`
+	Location    *string `json:"location"`
+	PostalCode  *string `json:"postal_code"`
 	Description *string `json:"description"`
-	URL         *string `json:"url"`
+	PhoneNumber *string `json:"phone_number"`
+	StoreOwner  *string `json:"store_owner"`
 }

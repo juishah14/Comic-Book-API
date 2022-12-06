@@ -2,38 +2,151 @@
 #
 # https://gqlgen.com/getting-started/
 
-type JobListing {
+type Character {
   _id: ID!
-  title: String!
+  name: String!
   description: String!
-  company: String!
-  url: String!
+  comic_book_series: String!
+  superpower: String!
+  danger_level: Int!
+}
+
+type Author {
+  _id: ID!
+  first_name: String!
+  last_name: String!
+  description: String!
+  birth_date: String!
+  comic_books_written: String!
+}
+
+type ComicBook {
+  _id: ID!
+  name: String!
+  description: String!
+  publication_date: String!
+  author: String!
+}
+
+type ComicBookStore {
+  _id: ID!
+  name: String!
+  location: String!
+  postal_code: String!
+  description: String!
+  phone_number: String!
+  store_owner: String!
 }
 
 type Query {
-  jobs: [JobListing!]!
-  job(id: ID!): JobListing!
+  character_details(id: ID!): Character!
+  author_details(id: ID!): Author!
+  book_details(id: ID!): ComicBook!
+  store_details(id: ID!): ComicBookStore!
+
+  characters: [Character!]!
+  authors: [Author!]!
+  books: [ComicBook!]!
+  stores: [ComicBookStore!]!
 }
 
 type Mutation {
-  createJobListing(input: CreateJobListingInput!): JobListing!
-  updateJobListing(id: ID!, input: UpdateJobListingInput!): JobListing!
-  deleteJobListing(id: ID!): DeleteJobResponse!
+  createCharacter(input: CreateCharacterInput!): Character!
+  updateCharacter(id: ID!, input: UpdateCharacterInput!): Character!
+  deleteCharacter(id: ID!): DeleteCharacterResponse!
+
+  createAuthor(input: CreateAuthorInput!): Author!
+  updateAuthor(id: ID!, input: UpdateAuthorInput!): Author!
+  deleteAuthor(id: ID!): DeleteAuthorResponse!
+
+  createComicBook(input: CreateComicBookInput!): ComicBook!
+  updateComicBook(id: ID!, input: UpdateComicBookInput!): ComicBook!
+  deleteComicBook(id: ID!): DeleteComicBookResponse!
+
+  createComicBookStore(input: CreateComicBookStoreInput!): ComicBookStore!
+  updateComicBookStore(
+    id: ID!
+    input: UpdateComicBookStoreInput!
+  ): ComicBookStore!
+  deleteComicBookStore(id: ID!): DeleteComicBookStoreResponse!
 }
 
-input CreateJobListingInput {
-  title: String!
+input CreateCharacterInput {
+  name: String!
   description: String!
-  company: String!
-  url: String!
+  comic_book_series: String!
+  superpower: String!
+  danger_level: Int!
 }
 
-input UpdateJobListingInput {
-  title: String
+input UpdateCharacterInput {
+  name: String
   description: String
-  url: String
+  comic_book_series: String
+  superpower: String
+  danger_level: Int
 }
 
-type DeleteJobResponse {
-  deletedJobId: String!
+type DeleteCharacterResponse {
+  deletedCharacterId: String!
+}
+
+input CreateAuthorInput {
+  first_name: String!
+  last_name: String!
+  description: String!
+  birth_date: String!
+  comic_books_written: String!
+}
+
+input UpdateAuthorInput {
+  first_name: String
+  last_name: String
+  description: String
+  birth_date: String
+  comic_books_written: String
+}
+
+type DeleteAuthorResponse {
+  deletedAuthorId: String!
+}
+
+input CreateComicBookInput {
+  name: String!
+  description: String!
+  publication_date: String!
+  author: String!
+}
+
+input UpdateComicBookInput {
+  name: String
+  description: String
+  publication_date: String
+  author: String
+}
+
+type DeleteComicBookResponse {
+  deletedComicBookId: String!
+}
+
+input CreateComicBookStoreInput {
+  name: String!
+  location: String!
+  postal_code: String!
+  description: String!
+  phone_number: String!
+  store_owner: String!
+}
+
+input UpdateComicBookStoreInput {
+  name: String
+  location: String
+  postal_code: String
+  description: String
+  phone_number: String
+  store_owner: String
+}
+
+type DeleteComicBookStoreResponse {
+  deletedComicBookStoreId: String!
 }
