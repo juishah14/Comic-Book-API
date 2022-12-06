@@ -3,10 +3,12 @@ package database
 import (
 	"context"
 	"log"
+	"os"
 	"time"
 
 	model "Golang-GraphQL-API/graph/model"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -15,13 +17,17 @@ import (
 )
 
 // change this later
-var connectionString string = "mongodb+srv://akhil:akhil@cluster0.td5oga4.mongodb.net/test"
 
 type DB struct {
 	client *mongo.Client
 }
 
 func Connect() *DB {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	var connectionString string = os.Getenv("MONGODB_URI")
 	client, err := mongo.NewClient(options.Client().ApplyURI(connectionString))
 	if err != nil {
 		log.Fatal(err)
