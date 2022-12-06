@@ -17,8 +17,6 @@ type Character struct {
 	Description     string `json:"description"`
 	ComicBookSeries string `json:"comic_book_series"`
 	Superpower      string `json:"superpower"`
-	Strength        int    `json:"strength"`
-	Intelligence    int    `json:"intelligence"`
 	DangerLevel     int    `json:"danger_level"`
 }
 
@@ -53,8 +51,6 @@ type CreateCharacterInput struct {
 	Description     string `json:"description"`
 	ComicBookSeries string `json:"comic_book_series"`
 	Superpower      string `json:"superpower"`
-	Strength        int    `json:"strength"`
-	Intelligence    int    `json:"intelligence"`
 	DangerLevel     int    `json:"danger_level"`
 }
 
@@ -103,8 +99,6 @@ type UpdateCharacterInput struct {
 	Description     *string `json:"description"`
 	ComicBookSeries *string `json:"comic_book_series"`
 	Superpower      *string `json:"superpower"`
-	Strength        *int    `json:"strength"`
-	Intelligence    *int    `json:"intelligence"`
 	DangerLevel     *int    `json:"danger_level"`
 }
 
