@@ -4,7 +4,7 @@ Inspired by comic books and Marvel, I used Golang, GraphQL, and MongoDB to creat
 
 In order to use the API, enter the command `go run server.go` in your terminal and then visit `http://localhost:8080/` to run your GraphQL queries.
 
-Example queries:
+Some example queries:
 
 ![My Image](images/author.png)
 
