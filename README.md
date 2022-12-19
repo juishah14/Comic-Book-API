@@ -1,4 +1,5 @@
 # Comic Book API
+### Tools: Golang, GraphQL, MongoDB
 
 Inspired by comic books and Marvel, I used Golang, GraphQL, and MongoDB to create a CRUD API to keep track of comic books, its characters and authors, as well as the location and details of comic book stores all around the world.
 
